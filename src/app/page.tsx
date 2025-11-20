@@ -90,7 +90,7 @@ export default function FractalLinksPage() {
                 >
                   {/* pill de luz izquierda */}
                   <div className="relative flex items-center justify-center">
-                    <div className="h-9 w-9 rounded-full bg-white/25 flex items-center justify-center backdrop-blur-sm group-hover:bg-white/35 transition text-black">
+                    <div className="h-9 w-9 rounded-full bg-white/25 flex items-center justify-center backdrop-blur-sm group-hover:bg-white/35 transition text-white">
                       {Icon && <Icon className="h-5 w-5" />}
                     </div>
                   </div>
