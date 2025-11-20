@@ -6,7 +6,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button"
 import { ApplyLabModal } from '@/components/apply-lab-modal';
 
-
 const FRACTAL_LINKS = [
   {
     label: "Fractal OPS™",
@@ -46,7 +45,8 @@ const FRACTAL_LINKS = [
 ];
 
 export default function FractalLinksPage() {
-  const [dialogOpen, setDialogOpen] = useState(false);
+  const [isApplyModalOpen, setIsApplyModalOpen] = useState(false);
+  const [showLabInfo, setShowLabInfo] = useState(false);
 
   return (
     <main className="min-h-screen flex items-center justify-center bg-[#050015] text-white font-body">
@@ -56,30 +56,47 @@ export default function FractalLinksPage() {
       <div className="w-full max-w-sm sm:max-w-md px-3 sm:px-4 py-8">
         <div className="relative rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_28px_80px_rgba(0,0,0,0.85)] overflow-hidden animate-card-in">
           
-          <div className="relative h-36 w-full overflow-hidden flex items-center justify-center text-center p-4">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_#ff2ba6,_#b025ff_40%,_#050015_100%)]" />
-            <div className="absolute inset-0 opacity-25 mix-blend-screen bg-[linear-gradient(120deg,rgba(255,255,255,0.35)_0,transparent_25%,transparent_75%,rgba(255,255,255,0.35)_100%),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[length:220%_220%,32px_32px] animate-hero-glow" />
-            <div className="relative z-10 w-full max-w-xs mx-auto">
-              <div className="inline-block bg-white/10 text-white/80 text-[10px] font-bold tracking-wider uppercase rounded-full px-2 py-0.5 mb-2">
-                Primer Trimestre 2026
+          <div className="px-4 pt-4 pb-5">
+            <div className="relative rounded-2xl bg-gradient-to-r from-[#ff2ba6] via-[#b025ff] to-[#3A7BFF] p-[1px] shadow-[0_14px_40px_rgba(0,0,0,0.8)]">
+              <div className="rounded-2xl bg-[#090016]/90 px-4 py-3">
+                <div className="flex items-center justify-between gap-2">
+                  <div>
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/70">
+                      Primer trimestre 2026
+                    </p>
+                    <p className="text-sm font-semibold text-white mt-0.5">
+                      5/8 cupos disponibles
+                    </p>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => setShowLabInfo(true)}
+                    className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 bg-white/10 text-xs font-semibold text-white/90 hover:bg-white/20 hover:border-white/60 transition"
+                    aria-label="Más información sobre el Laboratorio Fractal"
+                  >
+                    ?
+                  </button>
+                </div>
+
+                <div className="mt-3 h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
+                  <div className="h-full w-[62.5%] bg-gradient-to-r from-[#ff2ba6] to-[#ffe66d]" />
+                </div>
+
+                <p className="mt-2 text-[11px] text-white/70 leading-snug">
+                  Para marcas que quieran hacer parte del laboratorio digital trimestral de Fractal.
+                </p>
               </div>
-              <div className="text-sm font-semibold text-white/90 mb-2">5/8 cupos disponibles</div>
-              <div className="w-full bg-white/20 rounded-full h-2.5">
-                <div className="bg-white rounded-full h-2.5" style={{ width: `${(3 / 8) * 100}%` }}></div>
-              </div>
-              <p className="text-xs text-white/70 mt-2">Para marcas que quieran hacer parte del laboratorio digital.</p>
             </div>
-          </div>
-          
-          <div className="px-4 pt-4 pb-2 text-center">
-            <Button 
-                variant="outline" 
-                onClick={() => setDialogOpen(true)}
-                className="w-full bg-transparent border-accent text-accent hover:bg-accent/10 hover:text-accent animate-link-in opacity-0"
-                style={{ animationDelay: `0.12s` }}>
-                <Bot className="mr-2 h-4 w-4" />
-                Aplicar al Laboratorio
-              </Button>
+
+            <button
+              type="button"
+              onClick={() => setIsApplyModalOpen(true)}
+              className="mt-4 w-full flex items-center justify-center gap-2 rounded-2xl border border-[#4B7BFF] bg-transparent px-4 py-2.5 text-sm font-medium text-[#e0e5ff] hover:bg-[#151F4A] hover:border-[#7f9cff] transition shadow-[0_10px_26px_rgba(0,0,0,0.7)]"
+            >
+              <span className="text-base">🧪</span>
+              <span>Aplicar al Laboratorio</span>
+            </button>
           </div>
 
           <div className="pt-2 px-6 pb-4 text-center">
@@ -198,7 +215,132 @@ export default function FractalLinksPage() {
           </div>
         </div>
       </div>
-      <ApplyLabModal isOpen={dialogOpen} onClose={() => setDialogOpen(false)} />
+      <ApplyLabModal isOpen={isApplyModalOpen} onClose={() => setIsApplyModalOpen(false)} />
+      {showLabInfo && (
+        <LabInfoModal onClose={() => setShowLabInfo(false)} />
+      )}
     </main>
   );
 }
+
+type LabInfoModalProps = {
+  onClose: () => void;
+};
+
+const LAB_INFO_SECTIONS = [
+  {
+    title: "¿Qué es el Laboratorio Fractal?",
+    body: `Es un programa trimestral para máximo 8 marcas que quieren trabajar
+de la mano de Fractal en estrategia, embudos y OPS™. Durante 3 meses
+entras a un entorno de experimentación guiada: diseñamos, probamos y
+medimos acciones concretas para tu negocio digital.`
+  },
+  {
+    title: "¿Cómo funciona el ciclo trimestral?",
+    body: `Cada trimestre abrimos solo 8 cupos. Iniciamos con un diagnóstico
+profundo, definimos un objetivo principal (ventas, leads, procesos,
+lanzamiento, etc.) y armamos un roadmap de 90 días. Cada mes se ejecutan
+sprints con entregables claros y revisiones estratégicas. Al final del
+trimestre tienes un sistema montado, medible y documentado.`
+  },
+  {
+    title: "¿Qué incluye para tu marca?",
+    body: `• Sesiones de estrategia y priorización con el equipo de Fractal.\n
+• Diseño y optimización de al menos un embudo clave para tu negocio.\n
+• Implementación de automatizaciones OPS™ para quitar carga manual.\n
+• Acompañamiento en campañas, contenido o activos digitales según tu caso.\n
+• Tablero compartido con métricas, avances y próximos pasos.`
+  },
+  {
+    title: "¿Qué esperamos de las marcas dentro del lab?",
+    body: `Buscamos equipos comprometidos: que puedan implementar decisiones
+con rapidez, compartir datos reales y estar abiertos a experimentar.
+Pedimos disponibilidad para las sesiones acordadas y respuesta ágil en
+los canales definidos (WhatsApp / email / tablero compartido).`
+  },
+  {
+    title: "Cupos, inversión y siguiente paso",
+    body: `Solo aceptamos 8 marcas por trimestre para mantener foco y profundidad.
+La inversión varía según el tamaño del negocio y el alcance definido,
+y se confirma después de revisar tu aplicación. Si te interesa entrar
+al próximo ciclo, completa la aplicación y te contactamos por WhatsApp
+con los detalles exactos.`
+  }
+];
+
+function LabInfoModal({ onClose }: LabInfoModalProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const toggleIndex = (idx: number) => {
+    setOpenIndex((current) => (current === idx ? null : idx));
+  };
+
+  return (
+    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-sm animate-in fade-in-0">
+      <div className="w-full max-w-lg mx-4 rounded-3xl bg-[#050019] border border-white/10 shadow-[0_28px_80px_rgba(0,0,0,0.9)] overflow-hidden animate-in zoom-in-95">
+        {/* Header */}
+        <div className="px-6 pt-5 pb-4 border-b border-white/10 relative">
+          <h2 className="text-lg font-semibold text-white text-center">
+            ¿Cómo funciona el Laboratorio Fractal?
+          </h2>
+          <p className="mt-1 text-[11px] text-white/60 text-center">
+            Lee esto antes de aplicar. Te ayuda a saber si el lab es para tu marca.
+          </p>
+
+          <button
+            onClick={onClose}
+            className="absolute right-5 top-5 text-white/60 hover:text-white text-lg"
+          >
+            ×
+          </button>
+        </div>
+
+        {/* Contenido scrollable */}
+        <div className="px-6 py-5 space-y-3 max-h-[60vh] overflow-y-auto">
+          {LAB_INFO_SECTIONS.map((section, idx) => {
+            const isOpen = openIndex === idx;
+            return (
+              <div key={section.title} className="rounded-2xl bg-white/5 border border-white/10 overflow-hidden">
+                <button
+                  type="button"
+                  onClick={() => toggleIndex(idx)}
+                  className="w-full flex items-center justify-between px-4 py-3 text-left"
+                >
+                  <span className="text-sm font-medium text-white">
+                    {section.title}
+                  </span>
+                  <span className={`text-xs text-white/60 transform transition ${isOpen ? "rotate-90" : ""}`}>
+                    ▶
+                  </span>
+                </button>
+
+                {isOpen && (
+                  <div className="px-4 pb-3 pt-0">
+                    <p className="text-[12px] leading-relaxed whitespace-pre-line text-white/70">
+                      {section.body}
+                    </p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Footer */}
+        <div className="px-6 pt-3 pb-5 border-t border-white/10 flex items-center justify-between gap-3">
+          <button
+            onClick={onClose}
+            className="text-xs text-white/60 hover:text-white"
+          >
+            Cerrar
+          </button>
+          <span className="text-[11px] text-white/45 text-right">
+            Cuando lo tengas claro, vuelve y aplica al laboratorio desde el banner principal.
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+    
