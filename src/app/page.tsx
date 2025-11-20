@@ -3,14 +3,8 @@
 import { useState } from 'react';
 import { ArrowRight, Zap, BrainCircuit, Rocket, Puzzle, Calendar, ShoppingCart, MessageCircle, Instagram, ChevronDown, Bot } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogClose } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import * as z from "zod"
+import { ApplyLabModal } from '@/components/apply-lab-modal';
 
 
 const FRACTAL_LINKS = [
@@ -51,46 +45,8 @@ const FRACTAL_LINKS = [
   }
 ];
 
-const formSchema = z.object({
-  name: z.string().min(2, { message: "Tu nombre es importante." }),
-  business: z.string().min(2, { message: "Dinos el nombre de tu negocio." }),
-  challenge: z.string().min(10, { message: "Cuéntanos un poco más, al menos 10 caracteres." }),
-  magicWand: z.string().min(10, { message: "Sin miedo, ¡describe tu visión! Mínimo 10 caracteres." }),
-})
-
 export default function FractalLinksPage() {
   const [dialogOpen, setDialogOpen] = useState(false);
-
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      business: "",
-      challenge: "",
-      magicWand: "",
-    },
-  })
-
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    const header = `----------\n**NUEVA APLICACIÓN - LABORATORIO FRACTAL**\n----------`;
-    const message = `
-*Hola, soy:* ${values.name}
-*Mi negocio es:* ${values.business}
-
-*Mi mayor reto ahora mismo es:*
-${values.challenge}
-
-*Si tuviera una varita mágica para mi negocio, haría esto:*
-${values.magicWand}
-    `.trim();
-
-    const encodedMessage = encodeURIComponent(`${header}\n\n${message}`);
-    const whatsappUrl = `https://wa.me/573505310614?text=${encodedMessage}`;
-    
-    window.open(whatsappUrl, '_blank');
-    setDialogOpen(false);
-    form.reset();
-  }
 
   return (
     <main className="min-h-screen flex items-center justify-center bg-[#050015] text-white font-body">
@@ -208,87 +164,14 @@ ${values.magicWand}
                 </a>
               )
             ))}
-             <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-              <DialogTrigger asChild>
-                <Button 
-                  variant="outline" 
-                  className="w-full bg-transparent border-accent text-accent hover:bg-accent/10 hover:text-accent animate-link-in opacity-0"
-                  style={{ animationDelay: `${0.06 * FRACTAL_LINKS.length + 0.12}s` }}>
-                  <Bot className="mr-2 h-4 w-4" />
-                  Aplicar al Laboratorio
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[480px] bg-[#0A061F] border-white/20 text-white">
-                <DialogHeader>
-                  <DialogTitle className="text-accent text-2xl font-bold text-center">Aplica al Laboratorio Fractal</DialogTitle>
-                  <DialogDescription className="text-white/70 text-center pt-2">
-                    Esto no es un formulario cualquiera. Es el primer paso para transformar tu negocio. Responde con honestidad.
-                  </DialogDescription>
-                </DialogHeader>
-                <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Tu Nombre</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Ej: Ada Lovelace" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="business"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Nombre de tu Negocio</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Ej: Enigma Corp" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="challenge"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>¿Cuál es el mayor reto que enfrenta tu negocio ahora?</FormLabel>
-                          <FormControl>
-                            <Textarea placeholder="Ej: 'No logro que mis ventas sean predecibles' o 'Mis procesos manuales me consumen todo el día'." {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                     <FormField
-                      control={form.control}
-                      name="magicWand"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Si tuvieras una varita mágica, ¿qué único problema resolverías hoy?</FormLabel>
-                          <FormControl>
-                            <Textarea placeholder="Ej: 'Quisiera un sistema que me traiga clientes calificados en piloto automático'." {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <DialogFooter>
-                      <Button type="submit" className="w-full bg-accent text-white hover:bg-accent/90">
-                        Enviar Aplicación a WhatsApp
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    </DialogFooter>
-                  </form>
-                </Form>
-              </DialogContent>
-            </Dialog>
+              <Button 
+                variant="outline" 
+                onClick={() => setDialogOpen(true)}
+                className="w-full bg-transparent border-accent text-accent hover:bg-accent/10 hover:text-accent animate-link-in opacity-0"
+                style={{ animationDelay: `${0.06 * FRACTAL_LINKS.length + 0.12}s` }}>
+                <Bot className="mr-2 h-4 w-4" />
+                Aplicar al Laboratorio
+              </Button>
           </div>
 
           <div className="px-4 pb-4">
@@ -312,6 +195,7 @@ ${values.magicWand}
           </div>
         </div>
       </div>
+      <ApplyLabModal isOpen={dialogOpen} onClose={() => setDialogOpen(false)} />
     </main>
   );
 }
