@@ -208,12 +208,15 @@ export default function FractalLinksPage() {
               href="https://wa.me/573505310614?text=Hola%20Fractal,%20quiero%20un%20diagn%C3%B3stico%20digital%20para%20mi%20negocio."
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-full bg-white text-black px-4 py-2.5 text-[12px] font-medium shadow-[0_14px_35px_rgba(0,0,0,0.65)]
-                         hover:bg-neutral-100 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(0,0,0,0.75)] transition
+              className="flex flex-col items-center justify-center gap-1 rounded-full bg-[#00ff90] text-black px-4 py-2.5 text-[12px] font-medium shadow-[0_14px_35px_rgba(0,0,0,0.65)]
+                         hover:bg-[#5cffb4] hover:-translate-y-0.5 hover:shadow-[0_18px_40px_rgba(0,0,0,0.75)] transition
                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/40"
             >
-              <MessageCircle className="w-4 h-4" />
-              <span>Agenda tu diagnóstico express por WhatsApp</span>
+              <div className="flex items-center gap-1.5">
+                <MessageCircle className="w-4 h-4" />
+                <span>Agenda tu diagnóstico</span>
+              </div>
+              <span className="text-[11px]">express por WhatsApp</span>
             </a>
           </div>
 
