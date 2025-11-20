@@ -7,19 +7,19 @@ const FRACTAL_LINKS = [
     label: "Fractal OPS™",
     icon: <Zap size={16} strokeWidth={2.5} />,
     href: "https://ops.fractalstudiolab.com/",
-    subtitle: "Automatización, data y operaciones que ejecutan por ti."
+    subtitle: "Automatización y data para tu negocio."
   },
   {
     label: "Fractal Consulting",
     icon: <BrainCircuit size={16} strokeWidth={2.5} />,
     href: "https://consult.fractalstudiolab.com/",
-    subtitle: "Estrategia accionable para decidir con claridad."
+    subtitle: "Estrategia accionable para decidir claro."
   },
   {
     label: "Fractal 72hDigital™",
     icon: <Rocket size={16} strokeWidth={2.5} />,
     href: "https://72hdigital.fractalstudiolab.com/",
-    subtitle: "Tu activo digital listo en 72 horas para vender.",
+    subtitle: "Tu activo digital listo en 72 horas.",
     demos: [
       {
         label: "Order Constructor (Demo)",
@@ -111,16 +111,18 @@ export default function FractalLinksPage() {
                                  overflow-hidden hover:no-underline"
                       style={{ animationDelay: `${0.06 * idx + 0.12}s` }}
                     >
-                      <div className="flex items-center justify-center">
+                      <div className="flex items-center justify-center w-8">
                         <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center text-sm backdrop-blur-sm text-white">
                           {link.icon}
                         </div>
                       </div>
-                      <div className="flex-1 text-left">
+                      <div className="flex-1 text-center">
                         <p className="text-sm font-semibold leading-tight">{link.label}</p>
                         <p className="mt-1 text-[11px] text-white/95 leading-snug">{link.subtitle}</p>
                       </div>
-                      <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 text-white" />
+                      <div className="w-8 flex justify-end">
+                        <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 text-white group-data-[state=open]:rotate-180" />
+                      </div>
                     </AccordionTrigger>
                     <AccordionContent className="pt-2 space-y-2">
                       {link.demos.map((demo, demoIdx) => (
@@ -168,20 +170,16 @@ export default function FractalLinksPage() {
                             overflow-hidden"
                   style={{ animationDelay: `${0.06 * idx + 0.12}s` }}
                 >
-                  <div className="flex items-center justify-center">
+                  <div className="flex items-center justify-center w-8">
                     <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center text-sm backdrop-blur-sm text-white">
                       {link.icon}
                     </div>
                   </div>
-                  <div className="flex-1 text-left">
+                  <div className="flex-1 text-center">
                     <p className="text-sm font-semibold leading-tight">{link.label}</p>
                     <p className="mt-1 text-[11px] text-white/95 leading-snug">{link.subtitle}</p>
                   </div>
-                  <div className="flex items-center">
-                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/15 text-xs group-hover:bg-white/25 group-hover:translate-x-0.5 transition">
-                    <ArrowRight className="h-4 w-4" />
-                    </span>
-                  </div>
+                  <div className="w-8" />
                 </a>
               )
             ))}
