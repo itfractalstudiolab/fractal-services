@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react';
-import { ArrowRight, Zap, BrainCircuit, Rocket, Puzzle, Calendar, ShoppingCart, MessageCircle, Instagram, ChevronDown, Bot } from 'lucide-react';
+import { ArrowRight, Zap, BrainCircuit, Rocket, Puzzle, Calendar, ShoppingCart, MessageCircle, Instagram, ChevronDown, Bot, Users } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
 import { ApplyLabModal } from '@/components/apply-lab-modal';
@@ -106,7 +106,7 @@ export default function FractalLinksPage() {
               para escalar tu negocio sin fricción.
             </p>
 
-            <div className="mt-4 mb-1 flex justify-center">
+            <div className="mt-4 mb-1 flex justify-center gap-2">
               <a
                 href="https://instagram.com/fractalstudiolab"
                 target="_blank"
@@ -115,6 +115,15 @@ export default function FractalLinksPage() {
                 className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white/80 hover:border-white/60 hover:bg-white/10 hover:text-white transition"
               >
                 <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href="https://fractalstudiolab.com/nosotros"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Conoce al equipo"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white/80 hover:border-white/60 hover:bg-white/10 hover:text-white transition"
+              >
+                <Users className="h-5 w-5" />
               </a>
             </div>
           </div>
