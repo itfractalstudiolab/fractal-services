@@ -56,9 +56,12 @@ export default function FractalLinksPage() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_#ff2ba6,_#b025ff_40%,_#050015_100%)]" />
             {/* patrón sutil */}
             <div className="absolute inset-0 opacity-25 mix-blend-screen bg-[linear-gradient(120deg,rgba(255,255,255,0.35)_0,transparent_25%,transparent_75%,rgba(255,255,255,0.35)_100%),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[length:220%_220%,32px_32px] animate-hero-glow" />
-            <div className="relative z-10">
-                <h1 className="text-lg font-bold text-white/90">2026: 5/8 cupos disponibles</h1>
-                <p className="text-xs text-white/70 max-w-xs mx-auto">Para marcas que quieran hacer parte del laboratorio digital.</p>
+            <div className="relative z-10 w-full max-w-xs mx-auto">
+              <div className="text-sm font-semibold text-white/90 mb-2">2026: 5/8 cupos disponibles</div>
+              <div className="w-full bg-white/20 rounded-full h-2.5">
+                <div className="bg-white rounded-full h-2.5" style={{ width: `${(3 / 8) * 100}%` }}></div>
+              </div>
+              <p className="text-xs text-white/70 mt-2">Para marcas que quieran hacer parte del laboratorio digital.</p>
             </div>
           </div>
 
