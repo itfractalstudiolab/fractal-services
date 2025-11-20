@@ -63,12 +63,6 @@ export default function FractalLinksPage() {
                 {/* glow detrás */}
                 <div className="absolute -inset-1 blur-md bg-[conic-gradient(from_180deg,_rgba(255,255,255,0.35),rgba(255,43,166,0.85),rgba(58,123,255,0.85),rgba(255,255,255,0.35))]" />
                 <div className="relative w-16 h-16 rounded-full bg-black/90 border-2 border-white/70 shadow-[0_8px_30px_rgba(0,0,0,0.8)] overflow-hidden flex items-center justify-center">
-                  <img
-                    src="https://picsum.photos/seed/avatar/64/64"
-                    alt="Fractal Studio Lab"
-                    className="w-full h-full object-cover"
-                    data-ai-hint="man portrait"
-                  />
                 </div>
               </div>
             </div>
