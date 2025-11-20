@@ -1,39 +1,39 @@
-import { ArrowRight, Instagram, MessageCircle } from 'lucide-react';
+import { ArrowRight, Zap, BrainCircuit, Rocket, Puzzle, Calendar, ShoppingCart, MessageCircle, Instagram } from 'lucide-react';
 
 const FRACTAL_LINKS = [
   {
     label: "Fractal OPS™",
-    icon: "⚡",
+    icon: <Zap size={16} strokeWidth={2.5} />,
     href: "https://ops.fractalstudiolab.com/",
     subtitle: "Automatización, data y operaciones que ejecutan por ti."
   },
   {
     label: "Fractal Consulting",
-    icon: "🧠",
+    icon: <BrainCircuit size={16} strokeWidth={2.5} />,
     href: "https://consult.fractalstudiolab.com/",
     subtitle: "Estrategia accionable para decidir con claridad."
   },
   {
     label: "Fractal 72hDigital™",
-    icon: "🚀",
+    icon: <Rocket size={16} strokeWidth={2.5} />,
     href: "https://72hdigital.fractalstudiolab.com/",
     subtitle: "Tu activo digital listo en 72 horas para vender."
   },
   {
     label: "Order Constructor",
-    icon: "🧩",
+    icon: <Puzzle size={16} strokeWidth={2.5} />,
     href: "https://order.fractalstudiolab.com/",
     subtitle: "Mini funnels y pedidos claros, medibles y repetibles."
   },
   {
     label: "Bookings",
-    icon: "📅",
+    icon: <Calendar size={16} strokeWidth={2.5} />,
     href: "https://bookings.fractalstudiolab.com/",
     subtitle: "Reservas y agendas automatizadas sin perder control."
   },
   {
     label: "E-comm",
-    icon: "🛒",
+    icon: <ShoppingCart size={16} strokeWidth={2.5} />,
     href: "https://e-com.fractalstudiolab.com/",
     subtitle: "Infraestructura lista para escalar tu tienda online."
   }
@@ -52,10 +52,14 @@ export default function FractalLinksPage() {
         <div className="relative rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_28px_80px_rgba(0,0,0,0.85)] overflow-hidden animate-card-in">
           
           {/* HERO SUPERIOR */}
-          <div className="relative h-36 w-full overflow-hidden">
+          <div className="relative h-36 w-full overflow-hidden flex items-center justify-center text-center p-4">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_#ff2ba6,_#b025ff_40%,_#050015_100%)]" />
             {/* patrón sutil */}
             <div className="absolute inset-0 opacity-25 mix-blend-screen bg-[linear-gradient(120deg,rgba(255,255,255,0.35)_0,transparent_25%,transparent_75%,rgba(255,255,255,0.35)_100%),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[length:220%_220%,32px_32px] animate-hero-glow" />
+            <div className="relative z-10">
+                <h1 className="text-lg font-bold text-white/90">2026: 5/8 cupos disponibles</h1>
+                <p className="text-xs text-white/70 max-w-xs mx-auto">Para marcas que quieran hacer parte del laboratorio digital.</p>
+            </div>
           </div>
 
           {/* CONTENIDO CENTRAL */}
@@ -100,7 +104,7 @@ export default function FractalLinksPage() {
               >
                 {/* icono izquierda */}
                 <div className="flex items-center justify-center">
-                  <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center text-sm backdrop-blur-sm">
+                  <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center text-sm backdrop-blur-sm text-white">
                     {link.icon}
                   </div>
                 </div>
