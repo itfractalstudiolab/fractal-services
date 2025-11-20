@@ -56,20 +56,10 @@ export default function FractalLinksPage() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_#ff2ba6,_#b025ff_40%,_#050015_100%)]" />
             {/* patrón sutil */}
             <div className="absolute inset-0 opacity-25 mix-blend-screen bg-[linear-gradient(120deg,rgba(255,255,255,0.35)_0,transparent_25%,transparent_75%,rgba(255,255,255,0.35)_100%),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[length:220%_220%,32px_32px] animate-hero-glow" />
-
-            {/* Avatar con foto real */}
-            <div className="absolute inset-x-0 bottom-0 translate-y-1/2 flex justify-center z-20">
-              <div className="relative">
-                {/* glow detrás */}
-                <div className="absolute -inset-1 blur-md bg-[conic-gradient(from_180deg,_rgba(255,255,255,0.35),rgba(255,43,166,0.85),rgba(58,123,255,0.85),rgba(255,255,255,0.35))]" />
-                <div className="relative w-16 h-16 rounded-full bg-black/90 border-2 border-white/70 shadow-[0_8px_30px_rgba(0,0,0,0.8)] overflow-hidden flex items-center justify-center">
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* CONTENIDO CENTRAL */}
-          <div className="pt-10 px-6 pb-4 text-center">
+          <div className="pt-6 px-6 pb-4 text-center">
             <p className="text-[13px] font-semibold">@fractalstudiolab</p>
             <p className="mt-1 text-[11px] text-white/70 leading-snug max-w-xs mx-auto">
               Estrategia, diseño y OPS™ con el stack más moderno
