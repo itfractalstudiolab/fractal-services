@@ -70,8 +70,19 @@ export default function FractalLinksPage() {
               <p className="text-xs text-white/70 mt-2">Para marcas que quieran hacer parte del laboratorio digital.</p>
             </div>
           </div>
+          
+          <div className="px-4 pt-4 pb-2 text-center">
+            <Button 
+                variant="outline" 
+                onClick={() => setDialogOpen(true)}
+                className="w-full bg-transparent border-accent text-accent hover:bg-accent/10 hover:text-accent animate-link-in opacity-0"
+                style={{ animationDelay: `0.12s` }}>
+                <Bot className="mr-2 h-4 w-4" />
+                Aplicar al Laboratorio
+              </Button>
+          </div>
 
-          <div className="pt-6 px-6 pb-4 text-center">
+          <div className="pt-2 px-6 pb-4 text-center">
             <p className="text-[13px] font-semibold">@fractalstudiolab</p>
             <p className="mt-1 text-[11px] text-white/70 leading-snug max-w-xs mx-auto">
               Estrategia, diseño y OPS™ con el stack más moderno
@@ -105,7 +116,7 @@ export default function FractalLinksPage() {
                                  animate-link-in opacity-0
                                  focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:outline-none
                                  overflow-hidden hover:no-underline"
-                      style={{ animationDelay: `${0.06 * idx + 0.12}s` }}
+                      style={{ animationDelay: `${0.06 * (idx + 1) + 0.12}s` }}
                     >
                       <div className="flex-1 text-center">
                         <p className="text-sm font-semibold leading-tight">{link.label}</p>
@@ -125,7 +136,7 @@ export default function FractalLinksPage() {
                                      hover:bg-white/10
                                      hover:-translate-y-px transition
                                      animate-link-in opacity-0"
-                          style={{ animationDelay: `${0.06 * (idx + demoIdx + 1) + 0.12}s` }}
+                          style={{ animationDelay: `${0.06 * (idx + demoIdx + 2) + 0.12}s` }}
                         >
                           <div className="flex items-center justify-center">
                             <div className="h-7 w-7 rounded-full bg-white/10 flex items-center justify-center text-sm backdrop-blur-sm text-white">
@@ -155,7 +166,7 @@ export default function FractalLinksPage() {
                             animate-link-in opacity-0
                             focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:outline-none
                             overflow-hidden text-center justify-center"
-                  style={{ animationDelay: `${0.06 * idx + 0.12}s` }}
+                  style={{ animationDelay: `${0.06 * (idx + 1) + 0.12}s` }}
                 >
                   <div className="flex-1 text-center">
                     <p className="text-sm font-semibold leading-tight">{link.label}</p>
@@ -164,14 +175,6 @@ export default function FractalLinksPage() {
                 </a>
               )
             ))}
-              <Button 
-                variant="outline" 
-                onClick={() => setDialogOpen(true)}
-                className="w-full bg-transparent border-accent text-accent hover:bg-accent/10 hover:text-accent animate-link-in opacity-0"
-                style={{ animationDelay: `${0.06 * FRACTAL_LINKS.length + 0.12}s` }}>
-                <Bot className="mr-2 h-4 w-4" />
-                Aplicar al Laboratorio
-              </Button>
           </div>
 
           <div className="px-4 pb-4">
