@@ -57,7 +57,10 @@ export default function FractalLinksPage() {
             {/* patrón sutil */}
             <div className="absolute inset-0 opacity-25 mix-blend-screen bg-[linear-gradient(120deg,rgba(255,255,255,0.35)_0,transparent_25%,transparent_75%,rgba(255,255,255,0.35)_100%),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[length:220%_220%,32px_32px] animate-hero-glow" />
             <div className="relative z-10 w-full max-w-xs mx-auto">
-              <div className="text-sm font-semibold text-white/90 mb-2">2026: 5/8 cupos disponibles</div>
+              <div className="inline-block bg-white/10 text-white/80 text-[10px] font-bold tracking-wider uppercase rounded-full px-2 py-0.5 mb-2">
+                Primer Trimestre 2026
+              </div>
+              <div className="text-sm font-semibold text-white/90 mb-2">5/8 cupos disponibles</div>
               <div className="w-full bg-white/20 rounded-full h-2.5">
                 <div className="bg-white rounded-full h-2.5" style={{ width: `${(3 / 8) * 100}%` }}></div>
               </div>
