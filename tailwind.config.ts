@@ -119,6 +119,16 @@ export default {
             'background-position': '0% 0%, 0 0',
           },
         },
+        'fade-in': {
+          from: {
+            opacity: '0',
+            transform: 'translateY(10px) scale(0.98)',
+          },
+          to: {
+            opacity: '1',
+            transform: 'translateY(0) scale(1)',
+          },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -126,6 +136,7 @@ export default {
         'card-in': 'card-in 0.7s ease-out',
         'link-in': 'link-in 0.45s ease-out forwards',
         'hero-glow': 'hero-glow 10s linear infinite',
+        'fade-in': 'fadeIn 0.4s ease',
       },
     },
   },

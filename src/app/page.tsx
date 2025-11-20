@@ -1,9 +1,8 @@
 "use client"
 
 import { useState } from 'react';
-import { ArrowRight, Zap, BrainCircuit, Rocket, Puzzle, Calendar, ShoppingCart, MessageCircle, Instagram, ChevronDown, Bot, Users } from 'lucide-react';
+import { ArrowRight, Instagram, ChevronDown, Users, MessageCircle } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Button } from "@/components/ui/button"
 import { ApplyLabModal } from '@/components/apply-lab-modal';
 
 const FRACTAL_LINKS = [
@@ -43,6 +42,8 @@ const FRACTAL_LINKS = [
     ]
   }
 ];
+
+import { Puzzle, Calendar, ShoppingCart } from 'lucide-react';
 
 export default function FractalLinksPage() {
   const [isApplyModalOpen, setIsApplyModalOpen] = useState(false);
@@ -288,46 +289,68 @@ function LabInfoModal({ onClose }: LabInfoModalProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-sm animate-in fade-in-0">
-      <div className="w-full max-w-lg mx-4 rounded-3xl bg-[#050019] border border-white/10 shadow-[0_28px_80px_rgba(0,0,0,0.9)] overflow-hidden animate-in zoom-in-95">
-        {/* Header */}
-        <div className="px-6 pt-5 pb-4 border-b border-white/10 relative">
-          <h2 className="text-lg font-semibold text-white text-center">
+    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-sm animate-fade-in">
+      <div className="w-full max-w-lg mx-4 rounded-3xl bg-[#070015]/95 border border-white/10 shadow-[0_28px_80px_rgba(0,0,0,0.9)] overflow-hidden animate-fade-in">
+
+        {/* HEADER CON ESTÉTICA FRACTAL */}
+        <div className="relative px-6 pt-6 pb-5 border-b border-white/10 bg-gradient-to-b from-[#b025ff20] to-transparent">
+          
+          <h2 className="text-lg font-semibold text-white text-center flex items-center justify-center gap-2">
+            <span className="text-[#ff2ba6] text-xl">🧪</span>
             ¿Cómo funciona el Laboratorio Fractal?
           </h2>
+
           <p className="mt-1 text-[11px] text-white/60 text-center">
-            Lee esto antes de aplicar. Te ayuda a saber si el lab es para tu marca.
+            Lee esto antes de aplicar. Te ayuda a saber si el lab encaja con tu marca.
           </p>
 
+          {/* BOTÓN CERRAR */}
           <button
             onClick={onClose}
-            className="absolute right-5 top-5 text-white/60 hover:text-white text-lg"
+            className="absolute right-5 top-5 text-white/60 hover:text-white text-lg transition"
           >
             ×
           </button>
         </div>
 
-        {/* Contenido scrollable */}
-        <div className="px-6 py-5 space-y-3 max-h-[60vh] overflow-y-auto">
+        {/* CONTENIDO SCROLLABLE */}
+        <div className="px-5 py-5 space-y-4 max-h-[60vh] overflow-y-auto">
+
           {LAB_INFO_SECTIONS.map((section, idx) => {
             const isOpen = openIndex === idx;
             return (
-              <div key={section.title} className="rounded-2xl bg-white/5 border border-white/10 overflow-hidden">
+              <div
+                key={section.title}
+                className={`rounded-2xl border transition overflow-hidden
+                  ${
+                    isOpen
+                      ? "border-[#ff2ba6] bg-white/10 shadow-[0_0_25px_rgba(255,43,166,0.25)]"
+                      : "border-white/10 bg-white/5 hover:bg-white/[0.08]"
+                  }`}
+              >
                 <button
                   type="button"
                   onClick={() => toggleIndex(idx)}
                   className="w-full flex items-center justify-between px-4 py-3 text-left"
                 >
-                  <span className="text-sm font-medium text-white">
-                    {section.title}
-                  </span>
-                  <span className={`text-xs text-white/60 transform transition ${isOpen ? "rotate-90" : ""}`}>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[#ff2ba6] text-xs">◆</span>
+                    <span className="text-sm font-medium text-white">
+                      {section.title}
+                    </span>
+                  </div>
+
+                  <span
+                    className={`text-xs text-white/60 transform transition-transform ${
+                      isOpen ? "rotate-90" : ""
+                    }`}
+                  >
                     ▶
                   </span>
                 </button>
 
                 {isOpen && (
-                  <div className="px-4 pb-3 pt-0">
+                  <div className="px-4 pb-4 pt-0">
                     <p className="text-[12px] leading-relaxed whitespace-pre-line text-white/70">
                       {section.body}
                     </p>
@@ -338,21 +361,20 @@ function LabInfoModal({ onClose }: LabInfoModalProps) {
           })}
         </div>
 
-        {/* Footer */}
-        <div className="px-6 pt-3 pb-5 border-t border-white/10 flex items-center justify-between gap-3">
+        {/* FOOTER */}
+        <div className="px-5 pt-3 pb-5 border-t border-white/10 flex flex-col items-center">
           <button
             onClick={onClose}
-            className="text-xs text-white/60 hover:text-white"
+            className="text-xs text-white/60 hover:text-white transition"
           >
             Cerrar
           </button>
-          <span className="text-[11px] text-white/45 text-right">
+
+          <p className="mt-1 text-[10px] text-white/40 text-center leading-tight">
             Cuando lo tengas claro, vuelve y aplica al laboratorio desde el banner principal.
-          </span>
+          </p>
         </div>
       </div>
     </div>
   );
 }
-
-    
