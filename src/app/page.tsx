@@ -1,4 +1,6 @@
-import { ArrowRight, Zap, BrainCircuit, Rocket, Puzzle, Calendar, ShoppingCart, MessageCircle, Instagram } from 'lucide-react';
+import { ArrowRight, Zap, BrainCircuit, Rocket, Puzzle, Calendar, ShoppingCart, MessageCircle, Instagram, ChevronDown } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+
 
 const FRACTAL_LINKS = [
   {
@@ -17,25 +19,27 @@ const FRACTAL_LINKS = [
     label: "Fractal 72hDigital™",
     icon: <Rocket size={16} strokeWidth={2.5} />,
     href: "https://72hdigital.fractalstudiolab.com/",
-    subtitle: "Tu activo digital listo en 72 horas para vender."
-  },
-  {
-    label: "Order Constructor",
-    icon: <Puzzle size={16} strokeWidth={2.5} />,
-    href: "https://order.fractalstudiolab.com/",
-    subtitle: "Mini funnels y pedidos claros, medibles y repetibles."
-  },
-  {
-    label: "Bookings",
-    icon: <Calendar size={16} strokeWidth={2.5} />,
-    href: "https://bookings.fractalstudiolab.com/",
-    subtitle: "Reservas y agendas automatizadas sin perder control."
-  },
-  {
-    label: "E-comm",
-    icon: <ShoppingCart size={16} strokeWidth={2.5} />,
-    href: "https://e-com.fractalstudiolab.com/",
-    subtitle: "Infraestructura lista para escalar tu tienda online."
+    subtitle: "Tu activo digital listo en 72 horas para vender.",
+    demos: [
+      {
+        label: "Order Constructor (Demo)",
+        icon: <Puzzle size={16} strokeWidth={2.5} />,
+        href: "https://order.fractalstudiolab.com/",
+        subtitle: "Mini funnels y pedidos claros, medibles y repetibles."
+      },
+      {
+        label: "Bookings (Demo)",
+        icon: <Calendar size={16} strokeWidth={2.5} />,
+        href: "https://bookings.fractalstudiolab.com/",
+        subtitle: "Reservas y agendas automatizadas sin perder control."
+      },
+      {
+        label: "E-comm (Demo)",
+        icon: <ShoppingCart size={16} strokeWidth={2.5} />,
+        href: "https://e-com.fractalstudiolab.com/",
+        subtitle: "Infraestructura lista para escalar tu tienda online."
+      }
+    ]
   }
 ];
 
@@ -93,45 +97,93 @@ export default function FractalLinksPage() {
           {/* BOTONERA */}
           <div className="px-4 pb-4 space-y-3">
             {FRACTAL_LINKS.map((link, idx) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative flex items-center gap-3 rounded-2xl px-4 py-3
-                           bg-[linear-gradient(135deg,#ff2ba6,#ff5acb)]
-                           shadow-[0_10px_26px_rgba(255,43,166,0.55)]
-                           hover:shadow-[0_16px_34px_rgba(255,43,166,0.75)]
-                           hover:-translate-y-0.5 transition
-                           animate-link-in opacity-0
-                           focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:outline-none
-                           overflow-hidden"
-                style={{ animationDelay: `${0.06 * idx + 0.12}s` }}
-              >
-                {/* icono izquierda */}
-                <div className="flex items-center justify-center">
-                  <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center text-sm backdrop-blur-sm text-white">
-                    {link.icon}
+              link.demos ? (
+                <Accordion type="single" collapsible className="w-full" key={link.label}>
+                  <AccordionItem value="item-1" className="border-none">
+                    <AccordionTrigger 
+                      className="group relative flex items-center gap-3 rounded-2xl px-4 py-3
+                                 bg-[linear-gradient(135deg,#ff2ba6,#ff5acb)]
+                                 shadow-[0_10px_26px_rgba(255,43,166,0.55)]
+                                 hover:shadow-[0_16px_34px_rgba(255,43,166,0.75)]
+                                 hover:-translate-y-0.5 transition
+                                 animate-link-in opacity-0
+                                 focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:outline-none
+                                 overflow-hidden hover:no-underline"
+                      style={{ animationDelay: `${0.06 * idx + 0.12}s` }}
+                    >
+                      <div className="flex items-center justify-center">
+                        <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center text-sm backdrop-blur-sm text-white">
+                          {link.icon}
+                        </div>
+                      </div>
+                      <div className="flex-1 text-left">
+                        <p className="text-sm font-semibold leading-tight">{link.label}</p>
+                        <p className="mt-1 text-[11px] text-white/95 leading-snug">{link.subtitle}</p>
+                      </div>
+                      <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 text-white" />
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-2 space-y-2">
+                      {link.demos.map((demo, demoIdx) => (
+                        <a
+                          key={demo.label}
+                          href={demo.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group relative flex items-center gap-3 rounded-xl px-4 py-2
+                                     bg-white/5
+                                     hover:bg-white/10
+                                     hover:-translate-y-px transition
+                                     animate-link-in opacity-0"
+                          style={{ animationDelay: `${0.06 * (idx + demoIdx + 1) + 0.12}s` }}
+                        >
+                          <div className="flex items-center justify-center">
+                            <div className="h-7 w-7 rounded-full bg-white/10 flex items-center justify-center text-sm backdrop-blur-sm text-white">
+                              {demo.icon}
+                            </div>
+                          </div>
+                          <div className="flex-1 text-left">
+                            <p className="text-xs font-semibold leading-tight">{demo.label}</p>
+                          </div>
+                          <div className="flex items-center">
+                            <ArrowRight className="h-4 w-4 text-white/50 group-hover:translate-x-0.5 transition" />
+                          </div>
+                        </a>
+                      ))}
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative flex items-center gap-3 rounded-2xl px-4 py-3
+                            bg-[linear-gradient(135deg,#ff2ba6,#ff5acb)]
+                            shadow-[0_10px_26px_rgba(255,43,166,0.55)]
+                            hover:shadow-[0_16px_34px_rgba(255,43,166,0.75)]
+                            hover:-translate-y-0.5 transition
+                            animate-link-in opacity-0
+                            focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:outline-none
+                            overflow-hidden"
+                  style={{ animationDelay: `${0.06 * idx + 0.12}s` }}
+                >
+                  <div className="flex items-center justify-center">
+                    <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center text-sm backdrop-blur-sm text-white">
+                      {link.icon}
+                    </div>
                   </div>
-                </div>
-
-                {/* texto */}
-                <div className="flex-1 text-left">
-                  <p className="text-sm font-semibold leading-tight">
-                    {link.label}
-                  </p>
-                  <p className="mt-1 text-[11px] text-white/95 leading-snug">
-                    {link.subtitle}
-                  </p>
-                </div>
-
-                {/* flecha derecha */}
-                <div className="flex items-center">
-                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/15 text-xs group-hover:bg-white/25 group-hover:translate-x-0.5 transition">
-                   <ArrowRight className="h-4 w-4" />
-                  </span>
-                </div>
-              </a>
+                  <div className="flex-1 text-left">
+                    <p className="text-sm font-semibold leading-tight">{link.label}</p>
+                    <p className="mt-1 text-[11px] text-white/95 leading-snug">{link.subtitle}</p>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/15 text-xs group-hover:bg-white/25 group-hover:translate-x-0.5 transition">
+                    <ArrowRight className="h-4 w-4" />
+                    </span>
+                  </div>
+                </a>
+              )
             ))}
           </div>
 
