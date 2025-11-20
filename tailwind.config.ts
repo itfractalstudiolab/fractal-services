@@ -123,7 +123,7 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'card-in': 'card-in 0.7s ease-out forwards',
+        'card-in': 'card-in 0.7s ease-out',
         'link-in': 'link-in 0.45s ease-out forwards',
         'hero-glow': 'hero-glow 10s linear infinite',
       },
