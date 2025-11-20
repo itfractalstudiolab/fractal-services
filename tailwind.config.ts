@@ -136,7 +136,7 @@ export default {
         'card-in': 'card-in 0.7s ease-out',
         'link-in': 'link-in 0.45s ease-out forwards',
         'hero-glow': 'hero-glow 10s linear infinite',
-        'fade-in': 'fadeIn 0.4s ease',
+        'fade-in': 'fade-in 0.4s ease-out',
       },
     },
   },
