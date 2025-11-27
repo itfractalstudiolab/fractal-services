@@ -23,18 +23,18 @@ export default function FractalLinksPage() {
       <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0)_0,_#050015_70%)]" />
 
       <div className="w-full max-w-sm sm:max-w-md px-3 sm:px-4 py-8">
-        <div className="mb-6 text-center">
-            <Image 
-                src="https://s3.fractalstudiolab.com/browser/services-fsl/logo-fractal.png" 
-                alt="Fractal Studio Lab Logo"
-                width={40}
-                height={40}
-                className="mx-auto"
-            />
-        </div>
         <div className="relative rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_28px_80px_rgba(0,0,0,0.85)] overflow-hidden animate-card-in">
           
-          <div className="px-4 pt-4 pb-5">
+          <div className="px-4 pt-6 pb-5">
+             <div className="mb-6 text-center">
+                <Image 
+                    src="https://s3.fractalstudiolab.com/browser/services-fsl/logo-fractal.png" 
+                    alt="Fractal Studio Lab Logo"
+                    width={40}
+                    height={40}
+                    className="mx-auto"
+                />
+            </div>
             <div className="relative rounded-2xl bg-gradient-to-r from-[#ff2ba6] via-[#b025ff] to-[#3A7BFF] p-[1px] shadow-[0_14px_40px_rgba(0,0,0,0.8)]">
               <div className="rounded-2xl bg-[#090016]/90 px-4 py-3">
                 <div className="flex items-center justify-between gap-2">
