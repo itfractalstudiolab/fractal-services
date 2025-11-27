@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { ArrowRight, Instagram, ChevronDown, Users, MessageCircle, Puzzle, Calendar, ShoppingCart } from 'lucide-react';
+import Image from 'next/image';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { ApplyLabModal } from '@/components/apply-lab-modal';
 import { FRACTAL_LINKS } from '@/lib/fractal-links';
@@ -22,6 +23,15 @@ export default function FractalLinksPage() {
       <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0)_0,_#050015_70%)]" />
 
       <div className="w-full max-w-sm sm:max-w-md px-3 sm:px-4 py-8">
+        <div className="mb-6 text-center">
+            <Image 
+                src="https://s3.fractalstudiolab.com/browser/services-fsl/logo-fractal.png" 
+                alt="Fractal Studio Lab Logo"
+                width={40}
+                height={40}
+                className="mx-auto"
+            />
+        </div>
         <div className="relative rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_28px_80px_rgba(0,0,0,0.85)] overflow-hidden animate-card-in">
           
           <div className="px-4 pt-4 pb-5">
