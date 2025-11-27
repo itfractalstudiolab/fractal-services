@@ -32,7 +32,7 @@ export default function FractalLinksPage() {
                   alt="Fractal Studio Lab Logo"
                   width={220}
                   height={70}
-                  className="mx-auto w-[220px] h-auto"
+                  className="mx-auto w-[110px] h-auto"
                   priority
                 />
             </div>
@@ -103,15 +103,6 @@ export default function FractalLinksPage() {
                 className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white/80 hover:border-white/60 hover:bg-white/10 hover:text-white transition"
               >
                 <Globe className="h-5 w-5" />
-              </a>
-              <a
-                href="https://fractalstudiolab.com/nosotros"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Conoce al equipo"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white/80 hover:border-white/60 hover:bg-white/10 hover:text-white transition"
-              >
-                <Users className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -362,6 +353,8 @@ function LabInfoModal({ onClose }: LabInfoModalProps) {
     </div>
   );
 }
+
+    
 
     
 
