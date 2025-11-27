@@ -27,12 +27,13 @@ export default function FractalLinksPage() {
           
           <div className="px-4 pt-6 pb-5">
              <div className="mb-6 text-center">
-                <Image 
-                    src="https://s3.fractalstudiolab.com/services-fsl/logo-fractal.svg" 
-                    alt="Fractal Studio Lab Logo"
-                    width={80}
-                    height={100}
-                    className="mx-auto"
+                <Image
+                  src="https://s3.fractalstudiolab.com/services-fsl/logo-fractal.svg"
+                  alt="Fractal Studio Lab Logo"
+                  width={220}
+                  height={70}
+                  className="mx-auto w-[220px] h-auto"
+                  priority
                 />
             </div>
             <div className="relative rounded-2xl bg-gradient-to-r from-[#ff2ba6] via-[#b025ff] to-[#3A7BFF] p-[1px] shadow-[0_14px_40px_rgba(0,0,0,0.8)]">
@@ -352,5 +353,7 @@ function LabInfoModal({ onClose }: LabInfoModalProps) {
     </div>
   );
 }
+
+    
 
     
