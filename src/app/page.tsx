@@ -28,7 +28,7 @@ export default function FractalLinksPage() {
           <div className="px-4 pt-6 pb-5">
              <div className="mb-6 text-center">
                 <Image 
-                    src="https://s3.fractalstudiolab.com/browser/services-fsl/logo-fractal.svg" 
+                    src="https://s3.fractalstudiolab.com/services-fsl/logo-fractal.svg" 
                     alt="Fractal Studio Lab Logo"
                     width={40}
                     height={40}
@@ -352,5 +352,7 @@ function LabInfoModal({ onClose }: LabInfoModalProps) {
     </div>
   );
 }
+
+    
 
     
