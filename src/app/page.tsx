@@ -30,8 +30,8 @@ export default function FractalLinksPage() {
                 <Image 
                     src="https://s3.fractalstudiolab.com/services-fsl/logo-fractal.svg" 
                     alt="Fractal Studio Lab Logo"
-                    width={60}
-                    height={60}
+                    width={80}
+                    height={100}
                     className="mx-auto"
                 />
             </div>
