@@ -1,53 +1,20 @@
 "use client"
 
 import { useState } from 'react';
-import { ArrowRight, Instagram, ChevronDown, Users, MessageCircle } from 'lucide-react';
+import { ArrowRight, Instagram, ChevronDown, Users, MessageCircle, Puzzle, Calendar, ShoppingCart } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { ApplyLabModal } from '@/components/apply-lab-modal';
-
-const FRACTAL_LINKS = [
-  {
-    label: "Fractal OPS™",
-    href: "https://ops.fractalstudiolab.com/",
-    subtitle: "Automatización y data para tu negocio."
-  },
-  {
-    label: "Fractal Consulting",
-    href: "https://consult.fractalstudiolab.com/",
-    subtitle: "Estrategia accionable para decidir claro."
-  },
-  {
-    label: "Fractal 72hDigital™",
-    href: "https://72hdigital.fractalstudiolab.com/",
-    subtitle: "Tu activo digital listo en 72 horas.",
-    demos: [
-      {
-        label: "Order Constructor (Demo)",
-        icon: <Puzzle size={16} strokeWidth={2.5} />,
-        href: "https://order.fractalstudiolab.com/",
-        subtitle: "Mini funnels y pedidos claros y medibles."
-      },
-      {
-        label: "Bookings (Demo)",
-        icon: <Calendar size={16} strokeWidth={2.5} />,
-        href: "https://bookings.fractalstudiolab.com/",
-        subtitle: "Reservas y agendas automatizadas."
-      },
-      {
-        label: "E-comm (Demo)",
-        icon: <ShoppingCart size={16} strokeWidth={2.5} />,
-        href: "https://e-com.fractalstudiolab.com/",
-        subtitle: "Infraestructura lista para escalar tu tienda."
-      }
-    ]
-  }
-];
-
-import { Puzzle, Calendar, ShoppingCart } from 'lucide-react';
+import { FRACTAL_LINKS } from '@/lib/fractal-links';
 
 export default function FractalLinksPage() {
   const [isApplyModalOpen, setIsApplyModalOpen] = useState(false);
   const [showLabInfo, setShowLabInfo] = useState(false);
+
+  const demoIcons: { [key: string]: React.ReactNode } = {
+    "Order Constructor (Demo)": <Puzzle size={16} strokeWidth={2.5} />,
+    "Bookings (Demo)": <Calendar size={16} strokeWidth={2.5} />,
+    "E-comm (Demo)": <ShoppingCart size={16} strokeWidth={2.5} />
+  };
 
   return (
     <main className="min-h-screen flex items-center justify-center bg-[#050015] text-white font-body">
@@ -167,7 +134,7 @@ export default function FractalLinksPage() {
                         >
                           <div className="flex items-center justify-center">
                             <div className="h-7 w-7 rounded-full bg-white/10 flex items-center justify-center text-sm backdrop-blur-sm text-white">
-                              {demo.icon}
+                              {demoIcons[demo.label]}
                             </div>
                           </div>
                           <div className="flex-1 text-left">
