@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react';
-import { ArrowRight, Instagram, ChevronDown, Users, MessageCircle, Puzzle, Calendar, ShoppingCart } from 'lucide-react';
+import { ArrowRight, Instagram, ChevronDown, Users, MessageCircle, Puzzle, Calendar, ShoppingCart, Globe } from 'lucide-react';
 import Image from 'next/image';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { ApplyLabModal } from '@/components/apply-lab-modal';
@@ -94,6 +94,15 @@ export default function FractalLinksPage() {
                 className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white/80 hover:border-white/60 hover:bg-white/10 hover:text-white transition"
               >
                 <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href="https://fractalstudiolab.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Sitio Web"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white/80 hover:border-white/60 hover:bg-white/10 hover:text-white transition"
+              >
+                <Globe className="h-5 w-5" />
               </a>
               <a
                 href="https://fractalstudiolab.com/nosotros"
@@ -353,6 +362,8 @@ function LabInfoModal({ onClose }: LabInfoModalProps) {
     </div>
   );
 }
+
+    
 
     
 
