@@ -51,7 +51,7 @@ export default function FractalLinksPage() {
                   <button
                     type="button"
                     onClick={() => setShowLabInfo(true)}
-                    className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 bg-white/10 text-xs font-semibold text-white/90 transition hover:border-white/60 shadow-[0_0_15px_rgba(75,123,255,0.5)] hover:shadow-[0_0_25px_rgba(75,123,255,0.8)]"
+                    className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 bg-white/10 text-xs font-semibold text-white/90 transition hover:border-white/60 animate-neon-glow"
                     aria-label="Más información sobre el Laboratorio Fractal"
                   >
                     ?
@@ -361,4 +361,5 @@ function LabInfoModal({ onClose }: LabInfoModalProps) {
     
 
     
+
 
