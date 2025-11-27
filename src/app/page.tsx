@@ -352,7 +352,3 @@ function LabInfoModal({ onClose }: LabInfoModalProps) {
     </div>
   );
 }
-
-    
-
-    
