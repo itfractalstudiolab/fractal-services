@@ -1,21 +1,14 @@
 "use client"
 
 import { useState } from 'react';
-import { ArrowRight, Instagram, ChevronDown, Users, MessageCircle, Puzzle, Calendar, ShoppingCart, Globe } from 'lucide-react';
+import { Instagram, MessageCircle, Globe } from 'lucide-react';
 import Image from 'next/image';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { ApplyLabModal } from '@/components/apply-lab-modal';
 import { FRACTAL_LINKS } from '@/lib/fractal-links';
 
 export default function FractalLinksPage() {
   const [isApplyModalOpen, setIsApplyModalOpen] = useState(false);
   const [showLabInfo, setShowLabInfo] = useState(false);
-
-  const demoIcons: { [key: string]: React.ReactNode } = {
-    "Order Constructor (Demo)": <Puzzle size={16} strokeWidth={2.5} />,
-    "Bookings (Demo)": <Calendar size={16} strokeWidth={2.5} />,
-    "E-comm (Demo)": <ShoppingCart size={16} strokeWidth={2.5} />
-  };
 
   return (
     <main className="min-h-screen flex items-center justify-center bg-[#050015] text-white font-body">
@@ -109,76 +102,26 @@ export default function FractalLinksPage() {
 
           <div className="px-4 pb-4 space-y-3">
             {FRACTAL_LINKS.map((link, idx) => (
-              link.demos ? (
-                <Accordion type="single" collapsible className="w-full" key={link.label}>
-                  <AccordionItem value="item-1" className="border-none">
-                    <AccordionTrigger 
-                      className="group relative flex items-center justify-between gap-3 rounded-2xl px-4 py-3
-                                 bg-[linear-gradient(135deg,#ff2ba6,#ff5acb)]
-                                 shadow-[0_10px_26px_rgba(255,43,166,0.55)]
-                                 hover:shadow-[0_16px_34px_rgba(255,43,166,0.75)]
-                                 hover:-translate-y-0.5 transition
-                                 animate-link-in opacity-0
-                                 focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:outline-none
-                                 overflow-hidden hover:no-underline"
-                      style={{ animationDelay: `${0.06 * (idx + 1) + 0.12}s` }}
-                    >
-                      <div className="flex-1 text-center">
-                        <p className="text-sm font-semibold leading-tight">{link.label}</p>
-                        <p className="mt-1 text-[11px] text-white/95 leading-snug">{link.subtitle}</p>
-                      </div>
-                      <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200 text-white group-data-[state=open]:rotate-180" />
-                    </AccordionTrigger>
-                    <AccordionContent className="pt-2 space-y-2">
-                      {link.demos.map((demo, demoIdx) => (
-                        <a
-                          key={demo.label}
-                          href={demo.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group relative flex items-center gap-3 rounded-xl px-4 py-2
-                                     bg-white/5
-                                     hover:bg-white/10
-                                     hover:-translate-y-px transition
-                                     animate-link-in opacity-0"
-                          style={{ animationDelay: `${0.06 * (idx + demoIdx + 2) + 0.12}s` }}
-                        >
-                          <div className="flex items-center justify-center">
-                            <div className="h-7 w-7 rounded-full bg-white/10 flex items-center justify-center text-sm backdrop-blur-sm text-white">
-                              {demoIcons[demo.label]}
-                            </div>
-                          </div>
-                          <div className="flex-1 text-left">
-                            <p className="text-xs font-semibold leading-tight">{demo.label}</p>
-                          </div>
-                          <ArrowRight className="h-4 w-4 text-white/50 group-hover:translate-x-0.5 transition" />
-                        </a>
-                      ))}
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-              ) : (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative flex items-center gap-3 rounded-2xl px-4 py-3
-                            bg-[linear-gradient(135deg,#ff2ba6,#ff5acb)]
-                            shadow-[0_10px_26px_rgba(255,43,166,0.55)]
-                            hover:shadow-[0_16px_34px_rgba(255,43,166,0.75)]
-                            hover:-translate-y-0.5 transition
-                            animate-link-in opacity-0
-                            focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:outline-none
-                            overflow-hidden text-center justify-center"
-                  style={{ animationDelay: `${0.06 * (idx + 1) + 0.12}s` }}
-                >
-                  <div className="flex-1 text-center">
-                    <p className="text-sm font-semibold leading-tight">{link.label}</p>
-                    <p className="mt-1 text-[11px] text-white/95 leading-snug">{link.subtitle}</p>
-                  </div>
-                </a>
-              )
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center gap-3 rounded-2xl px-4 py-3
+                          bg-[linear-gradient(135deg,#ff2ba6,#ff5acb)]
+                          shadow-[0_10px_26px_rgba(255,43,166,0.55)]
+                          hover:shadow-[0_16px_34px_rgba(255,43,166,0.75)]
+                          hover:-translate-y-0.5 transition
+                          animate-link-in opacity-0
+                          focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:outline-none
+                          overflow-hidden text-center justify-center"
+                style={{ animationDelay: `${0.06 * (idx + 1) + 0.12}s` }}
+              >
+                <div className="flex-1 text-center">
+                  <p className="text-sm font-semibold leading-tight">{link.label}</p>
+                  {link.subtitle && <p className="mt-1 text-[11px] text-white/95 leading-snug">{link.subtitle}</p>}
+                </div>
+              </a>
             ))}
           </div>
 
@@ -353,13 +296,3 @@ function LabInfoModal({ onClose }: LabInfoModalProps) {
     </div>
   );
 }
-
-    
-
-    
-
-    
-
-    
-
-
