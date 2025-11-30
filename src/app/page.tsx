@@ -19,7 +19,7 @@ export default function FractalLinksPage() {
         <div className="relative rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_28px_80px_rgba(0,0,0,0.85)] overflow-hidden animate-card-in">
           
           <div className="px-4 pt-6 pb-5">
-             <div className="mb-6 text-center">
+             <div className="mb-4 text-center">
                 <Image
                   src="https://s3.fractalstudiolab.com/services-fsl/logo-fractal.svg"
                   alt="Fractal Studio Lab Logo"
@@ -302,5 +302,3 @@ function LabInfoModal({ onClose }: LabInfoModalProps) {
     </div>
   );
 }
-
-    
