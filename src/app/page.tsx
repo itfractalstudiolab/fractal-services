@@ -55,14 +55,13 @@ export default function FractalLinksPage() {
                 <div className="mt-3 h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
                   <div className="h-full w-full bg-gradient-to-r from-[#ff2ba6] to-[#ffe66d]" />
                 </div>
-
-                <p className="mt-2 text-[11px] text-white/70 leading-snug">
-                  Para marcas que quieran hacer parte del laboratorio digital trimestral de Fractal.
-                </p>
               </div>
               <div className="rounded-b-2xl bg-[#090016]/90 border-t border-white/10 px-4 py-2">
                 <p className="text-[11px] text-white/60 text-center leading-snug">
                   <span className="font-semibold text-white/80">Cupos completados.</span> Las nuevas aplicaciones se procesarán para el próximo ciclo.
+                </p>
+                <p className="mt-2 text-center text-[10px] text-white/50">
+                  Estaremos compartiendo procesos de los inscritos en este primer lab 2026.
                 </p>
               </div>
             </div>
