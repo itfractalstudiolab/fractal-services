@@ -29,15 +29,16 @@ export default function FractalLinksPage() {
                   priority
                 />
             </div>
+
             <div className="relative rounded-2xl bg-gradient-to-r from-[#ff2ba6] via-[#b025ff] to-[#3A7BFF] p-[1px] shadow-[0_14px_40px_rgba(0,0,0,0.8)]">
-              <div className="rounded-2xl bg-[#090016]/90 px-4 py-3">
+              <div className="rounded-t-2xl bg-[#090016]/90 px-4 pt-4 pb-3">
                 <div className="flex items-center justify-between gap-2">
                   <div>
                     <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/70">
                       Primer trimestre 2026
                     </p>
                     <p className="text-sm font-semibold text-white mt-0.5">
-                      5/8 cupos disponibles
+                      8/8 cupos llenos
                     </p>
                   </div>
 
@@ -52,11 +53,16 @@ export default function FractalLinksPage() {
                 </div>
 
                 <div className="mt-3 h-1.5 w-full rounded-full bg-white/10 overflow-hidden">
-                  <div className="h-full w-[62.5%] bg-gradient-to-r from-[#ff2ba6] to-[#ffe66d]" />
+                  <div className="h-full w-full bg-gradient-to-r from-[#ff2ba6] to-[#ffe66d]" />
                 </div>
 
                 <p className="mt-2 text-[11px] text-white/70 leading-snug">
                   Para marcas que quieran hacer parte del laboratorio digital trimestral de Fractal.
+                </p>
+              </div>
+              <div className="rounded-b-2xl bg-[#090016]/90 border-t border-white/10 px-4 py-2">
+                <p className="text-[11px] text-white/60 text-center leading-snug">
+                  <span className="font-semibold text-white/80">Cupos completados.</span> Las nuevas aplicaciones se procesarán para el próximo ciclo.
                 </p>
               </div>
             </div>
@@ -67,7 +73,7 @@ export default function FractalLinksPage() {
               className="mt-4 w-full flex items-center justify-center gap-2 rounded-2xl border border-[#4B7BFF] bg-transparent px-4 py-2.5 text-sm font-medium text-[#e0e5ff] hover:bg-[#151F4A] hover:border-[#7f9cff] transition shadow-[0_10px_26px_rgba(0,0,0,0.7)]"
             >
               <span className="text-base">🧪</span>
-              <span>Aplicar al Laboratorio</span>
+              <span>Aplicar al Laboratorio (Próximo Ciclo)</span>
             </button>
           </div>
 
@@ -296,3 +302,5 @@ function LabInfoModal({ onClose }: LabInfoModalProps) {
     </div>
   );
 }
+
+    
