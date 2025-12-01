@@ -4,6 +4,9 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Fractal Links',
   description: 'Links for Fractal Studio Lab services.',
+  icons: {
+    icon: 'https://s3.fractalstudiolab.com/brand-content/favicon.svg',
+  },
 };
 
 export default function RootLayout({
